@@ -4,6 +4,7 @@
   "description": "It is a bot that uses chat gpt in Slack to have conversations.",
   "main": "./dist/app.js",
   "scripts": {
+    "start": "node dist/app.js",
     "start:dev": "ngrok http 3000",
     "build": "tsc",
     "type-check": "tsc --noEmit",
