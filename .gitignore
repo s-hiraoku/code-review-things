@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+
+# dotenv environment variables file
+.env
+.env.test
+.env.bk*
+
+# Distribution
+dist
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Output of 'npm pack'
+*.tgz
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Coverage directory used by tools like istanbul
+coverage
+.eslintcache
+
+# Dependency directory
+node_modules
+
+# Output file for this application
+git-diff-files
+diff.zip

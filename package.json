@@ -1,0 +1,43 @@
+{
+  "name": "@hiraoku/code-review-things",
+  "version": "0.1.0",
+  "description": "AI code review of changes from git diffs.",
+  "keywords": [
+    "ai",
+    "git",
+    "review"
+  ],
+  "scripts": {
+    "slack-bot:start": "cd slack-bot && pnpm start:dev",
+    "slack-bot:serve": "cd slack-bot && pnpm run serve",
+    "slack-bot:build": "cd slack-bot && pnpm run build",
+    "slack-bot:test": "cd slack-bot && pnpm test",
+    "slack-bot:lint": "cd slack-bot && pnpm run lint",
+    "cli:build": "cd cli && pnpm run build",
+    "cli:start": "cd cli && pnpm start",
+    "cli:test": "cd cli && pnpm test",
+    "cli:lint": "cd cli && pnpm run lint",
+    "test": "vitest",
+    "lint": "eslint . --ext .ts",
+    "type-check": "tsc --noEmit"
+  },
+  "author": "Hiraoku Shinichi <s.hiraoku@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.6",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "vitest": "^0.34.6",
+    "prettier": "^3.0.3",
+    "prettier-plugin-organize-imports": "^3.2.3",
+    "pkgroll": "^2.0.1",
+    "typescript": "^5.2.2",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0"
+  },
+  "volta": {
+    "node": "20.8.1"
+  }
+}
