@@ -157,11 +157,9 @@ const outputGitDiffsByDirectory = async (outputDirectory: string): Promise<void>
     const diffOutput = await getGitDiff({ staged: true });
     const diffFiles = getDiffFiles(diffOutput);
 
-    await Promise.all([
-      makeDiffFilesDirectory(outputDirectory, diffFiles),
-      saveOriginalFiles(outputDirectory, diffFiles),
-      saveDiffOutput(outputDirectory, diffFiles, diffOutput),
-    ]);
+    await makeDiffFilesDirectory(outputDirectory, diffFiles);
+    await saveOriginalFiles(outputDirectory, diffFiles);
+    await saveDiffOutput(outputDirectory, diffFiles, diffOutput);
   } catch (error) {
     console.error('Failed to get git diff(outputGitDiffsByDirectory)', error);
     throw error;
