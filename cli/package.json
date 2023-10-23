@@ -33,7 +33,7 @@
     "@slack/bolt": "3.14.0"
   },
   "devDependencies": {
-    "pkgroll": "^1.11.0",
+    "pkgroll": "^2.0.0",
     "eslint": "^8.35.0",
     "tsx": "^3.12.3",
     "@typescript-eslint/eslint-plugin": "^6.8.0"
