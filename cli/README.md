@@ -1,7 +1,7 @@
 <div align="center">
   <div>
     <h1 align="center">AI Review Cli</h1>
-    <img src=".github/image.png" alt="AI Review Cli"/>
+    <img src="https://raw.githubusercontent.com/s-hiraoku/code-review-things/main/.github/image.png" alt="AI Review Cli"/>
   </div>
   <div>
     <p>An application for code review with AI. This AI Review Cli is responsible for sending files to be reviewed. </p>
