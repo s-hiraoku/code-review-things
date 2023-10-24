@@ -39,6 +39,6 @@
     "eslint-plugin-unused-imports": "^3.0.0"
   },
   "volta": {
-    "node": "20.8.1"
+    "node": "20.9.0"
   }
 }
