@@ -12,6 +12,7 @@
     "lint": "eslint . --ext .ts",
     "test": "vitest"
   },
+  "repository": "s-hiraoku/code-review-things",
   "author": "hiraoku.shinichi",
   "license": "MIT",
   "dependencies": {
