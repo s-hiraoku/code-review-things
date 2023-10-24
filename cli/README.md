@@ -45,8 +45,8 @@ The review application is a application that allows you to send a review request
 
 ## Contact
 
-- Your Name - [YourEmail@example.com]
-- Project Link: [https://github.com/your_username/YOUR-REPO](https://github.com/your_username/YOUR-REPO)
+- Hiraoku Shinichi - [s.hiraoku@gmail.com]
+- Project Link: [https://github.com/s-hiraoku/code-review-things](https://github.com/s-hiraoku/code-review-things)
 
 ## Acknowledgments
 
