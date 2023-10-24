@@ -1,6 +1,6 @@
 {
   "name": "@hiraoku/code-review-things",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AI code review of changes from git diffs.",
   "repository": "s-hiraoku/code-review-things",
   "keywords": [
