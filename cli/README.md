@@ -47,7 +47,3 @@ The review application is a application that allows you to send a review request
 
 - Hiraoku Shinichi - [s.hiraoku@gmail.com]
 - Project Link: [https://github.com/s-hiraoku/code-review-things](https://github.com/s-hiraoku/code-review-things)
-
-## Acknowledgments
-
-- Name or link to any articles, libraries, or other resources you found helpful or based your work upon.
