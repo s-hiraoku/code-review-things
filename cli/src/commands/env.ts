@@ -4,6 +4,8 @@ import { Env } from '../types/env';
 import { promises as fs } from 'fs';
 import { ENV_FILE_NAME } from '../constants';
 import { handleCliError } from '../utils/error';
+import * as path from 'path';
+import { fileURLToPath } from 'url';
 
 export const setEnv = async (): Promise<void> => {
   try {
@@ -52,7 +54,10 @@ export const setEnv = async (): Promise<void> => {
       .map((key) => `${key}=${env[key as keyof Env]}`)
       .join('\n');
 
-    await fs.writeFile(ENV_FILE_NAME, envFile);
+    const currentFileUrl = import.meta.url;
+    const appDirectory = path.dirname(fileURLToPath(currentFileUrl));
+    const envFilePath = path.join(appDirectory, ENV_FILE_NAME);
+    await fs.writeFile(envFilePath, envFile);
 
     outro(`🎉 ${bgLightGreen(' .env file has been set up ')}`);
   } catch (error) {
@@ -62,4 +67,19 @@ export const setEnv = async (): Promise<void> => {
   }
 };
 
-export const getEnv = (): void => {};
+export const getEnv = async (): Promise<void> => {
+  try {
+    intro(bgLightGreen('this is aireview .env '));
+
+    const currentFileUrl = import.meta.url;
+    const appDirectory = path.dirname(fileURLToPath(currentFileUrl));
+    const envFilePath = path.join(appDirectory, ENV_FILE_NAME);
+    const envFileContent = await fs.readFile(envFilePath, 'utf8');
+
+    console.log(envFileContent);
+
+    outro(`🎉 ${bgLightGreen(' .env file has been read ')}`);
+  } catch (error) {
+    console.error('Failed to read .env file', error);
+  }
+};
