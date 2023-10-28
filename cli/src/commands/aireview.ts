@@ -10,6 +10,7 @@ import { open } from 'node:fs/promises';
 import { DIFF_EXTENSION, DIFF_FILES_DIR, ZIP_FILE_NAME } from '../constants';
 import { WebClient } from '@slack/web-api';
 import { getEnv } from '../utils/env';
+import { REVIEW_REQUEST_MESSAGE } from '../../../shared/messages';
 
 export const aireview = async (output: boolean): Promise<void> => {
   try {
@@ -47,7 +48,6 @@ export const aireview = async (output: boolean): Promise<void> => {
   }
 };
 
-const REVIEW_REQUEST_MESSAGE = 'Please review the following code.';
 const postMessageWithZipFileToSlack = async (): Promise<void> => {
   const { SLACK_BOT_TOKEN, SLACK_BOT_ID, SLACK_CHANNEL_ID } = getEnv();
 

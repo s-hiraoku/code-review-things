@@ -5,7 +5,7 @@ import { Env, OPEN_AI_ROLE_TYPE, OpenAIMessages, SlackFiles } from './types';
 import { WebClient } from '@slack/web-api';
 import { getChatGPTResponse } from './openai';
 import admZip from 'adm-zip';
-import { OPENAI_RESTORE_CODE_MESSAGE, SLACK_START_REVIEW_MESSAGE, chatGPTRequestMessages } from './messages';
+import { OPENAI_RESTORE_CODE_MESSAGE, SLACK_START_REVIEW_MESSAGE, chatGPTRequestMessages } from '../../shared/messages';
 
 export const getEnvVariables = (): Env => {
   const { SLACK_BOT_TOKEN, SLACK_SIGNING_SECRET, PORT, OPENAI_API_KEY, OPENAI_MODEL } = getEnv();

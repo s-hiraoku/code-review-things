@@ -1,7 +1,7 @@
 import { App } from '@slack/bolt';
 import { getSlackBotId, sendMessageToSlack } from './slack';
 import { initOpenAI } from './openai';
-import { REVIEW_REQUEST_MESSAGE, SLACK_EMPTY_MESSAGE_REPLY } from './messages';
+import { REVIEW_REQUEST_MESSAGE, SLACK_EMPTY_MESSAGE_REPLY } from '../../shared/messages';
 import { getEnvVariables, processReviewCode, getOpenAIResponseAndReplyToThread } from './helpers';
 import { sanitizeText } from './utils';
 
