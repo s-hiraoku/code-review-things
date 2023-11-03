@@ -1,5 +1,5 @@
 # Set the base image
-FROM node:20-slim
+FROM node:21-slim
 
 # Set the working directory
 WORKDIR /usr/src/app
