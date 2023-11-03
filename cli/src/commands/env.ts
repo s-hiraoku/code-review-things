@@ -11,7 +11,7 @@ export const setEnv = async (): Promise<void> => {
   try {
     const env: Env = {
       SLACK_BOT_TOKEN: '',
-      SLACK_BOT_ID: '',
+      SLACK_REVIEWER_BOT_ID: '',
       SLACK_CHANNEL_ID: '',
     };
     intro(bgLightGreen(' aireview setup .env '));
@@ -27,10 +27,10 @@ export const setEnv = async (): Promise<void> => {
       },
     })) as string;
 
-    env.SLACK_BOT_ID = (await text({
-      message: `Please enter your Slack Bot ID: ${green('SLACK_BOT_ID')}`,
+    env.SLACK_REVIEWER_BOT_ID = (await text({
+      message: `Please enter your Reviewer Slack Bot ID: ${green('SLACK_REVIEWER_BOT_ID')}`,
       placeholder: 'xxxxxxxxx',
-      initialValue: env.SLACK_BOT_ID,
+      initialValue: env.SLACK_REVIEWER_BOT_ID,
       validate: (input) => {
         if (input.length === 0) {
           return 'Please enter your Slack Bot ID';
