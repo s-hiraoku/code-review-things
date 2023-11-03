@@ -12,14 +12,14 @@ export const getEnv = (): Env => {
     const env = load(
       {
         SLACK_BOT_TOKEN: String,
-        SLACK_BOT_ID: String,
+        SLACK_REVIEWER_BOT_ID: String,
         SLACK_CHANNEL_ID: String,
       },
       envFilePath,
     );
-    if (!env.SLACK_BOT_TOKEN || !env.SLACK_BOT_ID || !env.SLACK_CHANNEL_ID) {
+    if (!env.SLACK_BOT_TOKEN || !env.SLACK_REVIEWER_BOT_ID || !env.SLACK_CHANNEL_ID) {
       console.error(
-        'SLACK_BOT_TOKEN and/or SLACK_BOT_ID and/or SLACK_CHANEL_ID are not set in the environment variables',
+        'SLACK_BOT_TOKEN and/or SLACK_REVIEWER_BOT_ID and/or SLACK_CHANEL_ID are not set in the environment variables',
       );
       process.exit(1);
     }
