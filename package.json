@@ -19,8 +19,7 @@
     "cli:test": "cd cli && pnpm test",
     "cli:lint": "cd cli && pnpm run lint",
     "test": "vitest",
-    "lint": "eslint . --ext .ts",
-    "type-check": "tsc --noEmit"
+    "lint": "eslint . --ext .ts"
   },
   "author": "Hiraoku Shinichi <s.hiraoku@gmail.com>",
   "license": "MIT",
