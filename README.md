@@ -112,11 +112,11 @@ In the .env file, you will configure settings for the review request bot, which 
 
 - **SLACK_BOT_TOKEN**: Set the `OAuth Tokens for Your Workspace` found in the `OAuth & Permissions` of your Slack App. Set the token that begins with `xoxb-`.
 
-- **SLACK_BOT_ID**: Set the Member ID of the Workspace where the Slack App is registered.
+- **SLACK_REVIEWER_BOT_ID**: Set the Member ID of the Workspace where the Slack App is registered.
 
 - **SLACK_CHANNEL_ID**: Set the Channel ID of the registered app.
 
-Set the respective Member ID and Channel ID to `SLACK_BOT_ID` and `SLACK_CHANNEL_ID` as shown on this screen:
+Set the respective Member ID and Channel ID to `SLACK_REVIEWER_BOT_ID` and `SLACK_CHANNEL_ID` as shown on this screen:
 
 ![](https://storage.googleapis.com/zenn-user-upload/23db038705d6-20231030.png)
 

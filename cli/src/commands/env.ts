@@ -76,6 +76,7 @@ export const getEnv = async (): Promise<void> => {
     const envFilePath = path.join(appDirectory, ENV_FILE_NAME);
     const envFileContent = await fs.readFile(envFilePath, 'utf8');
 
+    console.log('.env file path', envFilePath);
     console.log(envFileContent);
 
     outro(`🎉 ${bgLightGreen(' .env file has been read ')}`);
