@@ -5,7 +5,7 @@ import { REVIEW_REQUEST_MESSAGE, SLACK_EMPTY_MESSAGE_REPLY } from '../../shared/
 import { getEnvVariables, processReviewCode, getOpenAIResponseAndReplyToThread } from './helpers';
 import { sanitizeText } from './utils';
 
-const DEFAULT_PORT = 3000;
+const DEFAULT_PORT = 8080;
 
 let slackBotId: string | undefined;
 const { SLACK_BOT_TOKEN, SLACK_SIGNING_SECRET, PORT, OPENAI_API_KEY, OPENAI_MODEL } = getEnvVariables();
