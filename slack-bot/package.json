@@ -5,7 +5,7 @@
   "main": "./dist/app.js",
   "scripts": {
     "start": "node dist/app.js",
-    "start:dev": "ngrok http 3000",
+    "start:dev": "ngrok http 8080",
     "build": "tsc",
     "type-check": "tsc --noEmit",
     "serve": "nodemon dist/app.js",
