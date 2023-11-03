@@ -2,13 +2,13 @@
   "name": "@hiraoku/chat-gpt-slack-bot",
   "version": "0.1.0",
   "description": "It is a bot that uses chat gpt in Slack to have conversations.",
-  "main": "./dist/app.js",
+  "main": "./dist/slack-bot/src/app.js",
   "scripts": {
-    "start": "node dist/app.js",
-    "start:dev": "ngrok http 8080",
+    "start": "node dist/slack-bot/src/app.js",
+    "start:dev": "ngrok http 3000",
     "build": "tsc",
     "type-check": "tsc --noEmit",
-    "serve": "nodemon dist/app.js",
+    "serve": "nodemon dist/slack-bot/src/app.js",
     "lint": "eslint . --ext .ts",
     "test": "vitest"
   },
