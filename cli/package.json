@@ -1,6 +1,6 @@
 {
   "name": "@hiraoku/aireview-cli",
-  "version": "0.1.0",
+  "version": "0.3.1",
   "description": "AI code review of changes from git diffs.",
   "repository": {
     "type": "git",
