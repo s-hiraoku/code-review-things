@@ -54,142 +54,189 @@ The review results are output in the thread
 
 ### Set up
 
-Certainly! Here's the translation in Markdown format:
+### Overview
 
----
+The following preparations are necessary for the setup:
 
-### Setting Up CLI Commands
+1. Preparation of the `aireview` command
+   We will set up an application to run a CLI command named `aireview` locally.
 
-You can set up CLI commands by either installing from the npm repository or by building locally.
+2. Setup of two Slack Apps
+   We will set up the following two Slack Apps:
 
-#### Installation from npm
+- A Slack App to receive review requests and notify on Slack.
+- A Slack App to receive those requests, inquire with ChatGPT, and display the results on Slack.
 
-To install from the npm repository, execute the following:
+3. Setup of Slackbot
+   We will set up a Slackbot application to execute the necessary behavior for reviews upon receiving messages from the Slack App.
+
+So, we will proceed with the setup as mentioned. As per the title, we will have Zundamon perform the reviews. Therefore, we will create a Slack App for Zundamon. Also, a Slack App is necessary to send review requests, so we will use Shikoku Metan for this purpose.
+
+The application for executing the review command can be built and run locally, but it is also registered in the npm registry, so you can install and use it from [here](https://www.npmjs.com/package/@hiraoku/aireview-cli).
+
+Slackbot provides two ways to run: building and executing locally, and deploying and running on Cloud Run. You may first want to try it locally, customize and adjust, and once you're familiar with the way it works, consider using Cloud Run.
+
+Since my environment is Mac, I will explain the setup steps for Mac.
+If you are using Windows or something else, please adapt the installation steps accordingly to your situation.
+
+### Creating a Slack App
+
+#### Creating a Slack App for Review Requests
+
+This application requires a Slack workspace and channels.
+It retrieves review information and displays review results in the workspace channels.
+Please make sure these are set up beforehand.
+
+Let’s begin by creating a Slack App for sending review requests.
+This is for the "Shikoku Metan" Slack App.
+
+1. Go to the [Slack API page](https://api.slack.com/apps) and click `Create an App`.
+2. Select an app name and workspace, then create the app.
+
+Next, move to the `OAuth & Permissions` page to set up Scopes. Configure the necessary permissions under `Scopes`.
+The detailed settings are omitted, but please set the necessary permissions as follows. For more details, refer to the [official site](https://api.slack.com/scopes).
+
+![OAuth settings](https://storage.googleapis.com/zenn-user-upload/ec0b160c3ad9-20231030.png)
+
+After completing the settings, install the app to your workspace.
+Click `Install to Workspace` to install the application in your workspace. At this point, you will be provided with an `OAuth Access Token`, so make sure to note it down.
+
+Set up `Display Information` as you prefer.
+
+![Display Information](https://storage.googleapis.com/zenn-user-upload/683a5c27e481-20231030.png)
+
+#### Creating a Slack App for Sending Review Requests to ChatGPT
+
+Create a Slack App following the same procedure as before.
+This will be for "Zunda Mon".
+
+The settings for Scopes are as follows.
+![OAuth settings](https://storage.googleapis.com/zenn-user-upload/6c07286c2ecb-20231030.png)
+
+Set up the `Display Information` as well.
+
+![Display Information](https://storage.googleapis.com/zenn-user-upload/6740d4a8f6ed-20231030.png)
+
+With that, the creation of the Slack App is complete.
+
+Please register the created app in the Slack channel where review exchanges will occur.
+
+### CLI Command Configuration
+
+You can install the CLI command from the npm repository or build it locally.
+
+To install from the npm repository, execute the following command:
 
 ```sh
-npm install -g @hiraoku/aireview-cli
+pnpm install -g @hiraoku/aireview-cli
 ```
-
-#### Local Setup
 
 To run locally, execute the following in the root directory:
 
-For building:
+Build:
 
 ```sh
 pnpm run cli:build
 ```
 
-To execute CLI commands:
+Execute CLI command:
 
 ```sh
 pnpm run cli:start
 ```
 
-With this, you are now able to execute CLI commands.
+This will make the CLI command executable.
 
----
+Next, create a .env file.
+You can set up the .env file by adding the option --init to the CLI command.
 
-### Creating a .env File
-
-Next, you need to create a .env file. You can set up the .env file by adding the `--init` option to the CLI command.
-
-- If installed via npm:
+If installed via npm:
 
 ```sh
 aireview --init
 ```
 
-- If built locally:
+If built locally:
 
 ```sh
 pnpm run cli:start --init
 ```
 
-In the .env file, you will configure settings for the review request bot, which is set up for Shikoku Metan. The settings are as follows:
+The .env file will have settings for the review request bot, which will be for "Shikoku Metan".
+The settings are as follows:
 
 ![aireview --init](https://storage.googleapis.com/zenn-user-upload/1a5d625c9c15-20231030.png)
 
-- **SLACK_BOT_TOKEN**: Set the `OAuth Tokens for Your Workspace` found in the `OAuth & Permissions` of your Slack App. Set the token that begins with `xoxb-`.
+**SLACK_BOT_TOKEN**
+Set the `OAuth & Permission`'s `OAuth Tokens for Your Workspace` from the "Shikoku Metan" Slack App.
+Set the token that starts with `xoxb-`.
 
-- **SLACK_REVIEWER_BOT_ID**: Set the Member ID of the Workspace where the Slack App is registered.
+**SLACK_REVIEWER_BOT_ID**
+Set the member ID from the Workspace where the Slack App is registered. Note that you must set the ID of the reviewer's bot, so please set "Zunda Mon"'s member ID.
 
-- **SLACK_CHANNEL_ID**: Set the Channel ID of the registered app.
+![](https://storage.googleapis.com/zenn-user-upload/36f6eadbad8f-20231103.png)
 
-Set the respective Member ID and Channel ID to `SLACK_REVIEWER_BOT_ID` and `SLACK_CHANNEL_ID` as shown on this screen:
+**SLACK_CHANNEL_ID**
+Set the **channel ID of the workspace channel** that was created for exchanging review requests. **Be careful not to set the Slack App's channel ID.**
 
-![](https://storage.googleapis.com/zenn-user-upload/23db038705d6-20231030.png)
+The CLI command configuration is now complete.
 
----
+### Slackbot Configuration
 
-With this, the configuration of CLI commands is complete.
+There are two ways to run the Slackbot: locally or using Cloud Run.
 
-Certainly! Here's the translation in Markdown format:
+#### Local Startup
 
----
+First, set up your .env file. This will be the settings for the Slack App (Zunda Mon) that inquires to ChatGPT and displays the results in Slack, as well as the settings for ChatGPT.
 
-### Setting Up Slackbot
+**SLACK_SIGNING_SECRET**
+From the `Basic Information` page, retrieve and set the `Signing Secret`.
 
-There are two methods to run Slackbot: locally and on Cloud Run.
+**SLACK_BOT_TOKEN**
+Set the `OAuth Tokens for Your Workspace` from the Slack App's `OAuth & Permissions`.
+Set the token that starts with `xoxb-`.
 
-#### Running Locally
+**OPENAI_API_KEY**
+Set the OpenAI API key.
 
-Here's how to set it up locally.
+**OPENAI_MODEL**
+Set the OpenAI Model.
 
-First, configure the `.env` file. In this file, set up the Slack App (zundamon) to send queries to ChatGPT and display the results in Slack. You also set up ChatGPT.
-
-**SLACK_SIGNING_SECRET**  
-Retrieve and set the `Signing Secret` from the `Basic Information` page.
-
-**SLACK_BOT_TOKEN**  
-From the Slack App's `OAuth & Permissions`, set the `OAuth Tokens for Your Workspace`. Configure the token that starts with `xoxb-`.
-
-**OPENAI_API_KEY**  
-Set the API key for OpenAI.
-
-**OPENAI_MODEL**  
-Set the model for OpenAI.
-
-Next, install ngrok. Ngrok is a tunneling/reverse proxy tool that allows direct external access to a local server port (localhost) inside a network.
+Next, install ngrok.
+ngrok is a tunneling/reverse proxy tool that allows direct access from the outside to a local server port (localhost) inside the network.
 
 ```sh
 brew install ngrok/ngrok/ngrok
 ```
 
-In the root directory of `code-review-things`, run the following to start ngrok:
+Execute the following in the root directory
+
+to run the server:
 
 ```sh
-pnpm run slack-bot:start
+pnpm run dev
 ```
 
-Upon launch, a URL in the format `https://xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx.ngrok-free.app` will be displayed under "Forwarding". Set this URL as the `Request URL` on the `Event Subscriptions` page of the Slack App. When setting, add `/slack/events` to the end of the URL.
-
-It should look something like this:  
-`https://xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx.ngrok-free.app/slack/events`.
-
-If successful, "Verified ✔" will be displayed.
-
-Next, run the following to start Slackbot:
+Next, configure ngrok to use the same port as the Slackbot server.
 
 ```sh
-pnpm run slack-bot:serve
+ngrok http 3000
 ```
 
-With that, the local setup is complete.
+Set the `Request URL` in the Slack App's `Event Subscriptions` to the URL displayed in the ngrok command.
+![Event Subscriptions](https://storage.googleapis.com/zenn-user-upload/9e7e39931645-20231030.png)
 
-As a side note, although we exposed the local server using ngrok this time, it's also possible to use Slack's [Socket Mode](https://api.slack.com/apis/connections/socket).
+#### Launching with Cloud Run
 
-#### Running on Cloud Run
+First, create a project at [Google Cloud Console](https://console.cloud.google.com/home/dashboard).
 
-First, create a project on the [Google Cloud Console](https://console.cloud.google.com/home/dashboard).
-
-Next, install the `Google Cloud SDK`.
+Next, install `Google Cloud SDK`.
 
 ```sh
-brew install --cask google-cloud-sdk
+$ brew install --cask google-cloud-sdk
 ```
 
-To deploy, run the following:
+To deploy, execute the following command.
 
 ```sh
 gcloud run deploy code-review-slack-bot \
@@ -199,18 +246,21 @@ gcloud run deploy code-review-slack-bot \
   --allow-unauthenticated
 ```
 
-Set `$PROJECT` to the project you set up earlier on Google Cloud Console. Once deployment is complete, a URL like  
-`https://code-review-slack-bot-XXXXXXXXXXX.a.run.app` will be displayed. Set this URL as the `Request URL` on the `Event Subscriptions` page of the Slack App, just like you did for the local setup.
+Please specify the project you set earlier in the Google Cloud Console for $PROJECT.
+After deployment is finished, a URL like `https://code-review-slack-bot-XXXXXXXXXXX.a.run.app` will be displayed. Set this URL in the `Request URL` on the `Event Subscriptions` page of your Slack App, just like you would do for local startup.
 
-Next, reopen `Google Cloud Console` and open Cloud Run. You'll see a service named `code-review-slack-bot`. Open `Deploy a new revision`.
+There is a chance that the first deployment may fail to start the container due to an error. This could be because the environment variables are not set. In that case, proceed to the next step without making changes.
 
-Here, open the `Variables and Secrets` tab and set the environment variables. Use the contents of the `.env` file from the local setup as a reference.
+Then, open `Google Cloud Console` again and go to Cloud Run.
+You will see a service created called `code-review-slack-bot`. Open `Deploy new revision`.
 
-![Environment Variable Configuration](https://storage.googleapis.com/zenn-user-upload/b07e8137c9ef-20231031.png)
+Here, click on the `Variables & Secrets` tab and set the environment variables. Use the contents of the .env file from your local setup for reference.
+
+![Setting environment variables](https://storage.googleapis.com/zenn-user-upload/b07e8137c9ef-20231031.png)
 
 That completes the setup.
 
----
+With these settings, you will be able to perform code reviews.
 
 ## Features
 
