@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "@slack/bolt": "^3.14.0",
-    "@slack/web-api": "^6.9.0",
+    "@slack/web-api": "^7.0.0",
     "adm-zip": "^0.5.10",
     "axios": "^1.5.1",
     "openai": "^4.11.0",
