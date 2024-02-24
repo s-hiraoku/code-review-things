@@ -37,7 +37,7 @@
     "ts-dotenv": "^0.9.1"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
     "eslint": "^8.35.0",
     "pkgroll": "^2.0.0",
     "tsx": "^4.0.0",
