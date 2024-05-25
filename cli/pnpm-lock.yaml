@@ -9,8 +9,8 @@ dependencies:
     specifier: ^0.7.0
     version: 0.7.0
   '@slack/bolt':
-    specifier: 3.17.1
-    version: 3.17.1
+    specifier: 3.18.0
+    version: 3.18.0
   '@slack/web-api':
     specifier: ^7.0.0
     version: 7.0.4
@@ -788,8 +788,8 @@ packages:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
-  /@slack/bolt@3.17.1:
-    resolution: {integrity: sha512-N+4WxpkM59RXi7BL3IXUtENnn9cF7TOBn7ttaHpgvlnjUaro+yQyY60arXTlP4ytVDFJ1w0mSdfftcM17h+i2w==}
+  /@slack/bolt@3.18.0:
+    resolution: {integrity: sha512-A7bDi5kY50fS6/nsmURkQdO3iMxD8aX/rA+m1UXEM2ue2z4KijeQtx2sOZ4YkJQ/h7BsgTQM0CYh3qqmo+m5sQ==}
     engines: {node: '>=12.13.0', npm: '>=6.12.0'}
     dependencies:
       '@slack/logger': 4.0.0
@@ -800,7 +800,7 @@ packages:
       '@types/express': 4.17.20
       '@types/promise.allsettled': 1.0.5
       '@types/tsscmp': 1.0.1
-      axios: 1.6.2
+      axios: 1.6.8
       express: 4.18.2
       path-to-regexp: 6.2.1
       please-upgrade-node: 3.2.0
@@ -1316,16 +1316,6 @@ packages:
   /available-typed-arrays@1.0.5:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
     engines: {node: '>= 0.4'}
-    dev: false
-
-  /axios@1.6.2:
-    resolution: {integrity: sha512-7i24Ri4pmDRfJTR7LDBhsOTtcm+9kjX5WiY1X3wIisx6G9So3pfMkEiU7emUBe46oceVImccTEM3k6C5dbVW8A==}
-    dependencies:
-      follow-redirects: 1.15.6
-      form-data: 4.0.0
-      proxy-from-env: 1.1.0
-    transitivePeerDependencies:
-      - debug
     dev: false
 
   /axios@1.6.8:
