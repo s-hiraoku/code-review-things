@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@slack/bolt':
     specifier: ^3.14.0
-    version: 3.18.0
+    version: 3.19.0
   '@slack/web-api':
     specifier: ^7.0.0
     version: 7.3.1
@@ -128,7 +128,7 @@ packages:
       '@babel/traverse': 7.23.2
       '@babel/types': 7.23.0
       convert-source-map: 2.0.0
-      debug: 4.3.4(supports-color@5.5.0)
+      debug: 4.3.5
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -209,7 +209,7 @@ packages:
       '@babel/core': 7.23.2
       '@babel/helper-compilation-targets': 7.22.15
       '@babel/helper-plugin-utils': 7.22.5
-      debug: 4.3.4(supports-color@5.5.0)
+      debug: 4.3.5
       lodash.debounce: 4.0.8
       resolve: 1.22.8
     transitivePeerDependencies:
@@ -1293,7 +1293,7 @@ packages:
       '@babel/helper-split-export-declaration': 7.22.6
       '@babel/parser': 7.23.0
       '@babel/types': 7.23.0
-      debug: 4.3.4(supports-color@5.5.0)
+      debug: 4.3.5
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -2141,14 +2141,14 @@ packages:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
-  /@slack/bolt@3.18.0:
-    resolution: {integrity: sha512-A7bDi5kY50fS6/nsmURkQdO3iMxD8aX/rA+m1UXEM2ue2z4KijeQtx2sOZ4YkJQ/h7BsgTQM0CYh3qqmo+m5sQ==}
+  /@slack/bolt@3.19.0:
+    resolution: {integrity: sha512-P5Yup/PbO8sE5xsuqkBkpSPkxEkfWZ6yo5ZlmBGxRhhoU1usUSU2w0bgZoiDX4WFm7ZX+3x2Dyf4VMa9kzfmVQ==}
     engines: {node: '>=12.13.0', npm: '>=6.12.0'}
     dependencies:
       '@slack/logger': 4.0.0
       '@slack/oauth': 2.6.2
       '@slack/socket-mode': 1.3.5
-      '@slack/types': 2.11.0
+      '@slack/types': 2.12.0
       '@slack/web-api': 6.12.0
       '@types/express': 4.17.21
       '@types/promise.allsettled': 1.0.6
@@ -2205,7 +2205,7 @@ packages:
       '@types/ws': 7.4.7
       eventemitter3: 5.0.1
       finity: 0.5.4
-      ws: 7.5.9
+      ws: 7.5.10
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -2227,7 +2227,7 @@ packages:
     engines: {node: '>= 12.13.0', npm: '>= 6.12.0'}
     dependencies:
       '@slack/logger': 3.0.0
-      '@slack/types': 2.11.0
+      '@slack/types': 2.12.0
       '@types/is-stream': 1.1.0
       '@types/node': 20.11.24
       axios: 1.6.8
@@ -2291,8 +2291,8 @@ packages:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
     dev: true
 
-  /@types/express-serve-static-core@4.19.0:
-    resolution: {integrity: sha512-bGyep3JqPCRry1wq+O5n7oiBgGWmeIJXPjXXCo8EK0u8duZGSYar7cGqd3ML2JUsLGeB7fmc06KYo9fLGWqPvQ==}
+  /@types/express-serve-static-core@4.19.5:
+    resolution: {integrity: sha512-y6W03tvrACO72aijJ5uF02FRq5cgDR9lUxddQ8vyF+GvmjJQqbzDcJngEjURc+ZsG31VI3hODNZJ2URj86pzmg==}
     dependencies:
       '@types/node': 20.11.24
       '@types/qs': 6.9.15
@@ -2304,7 +2304,7 @@ packages:
     resolution: {integrity: sha512-ejlPM315qwLpaQlQDTjPdsUFSc6ZsP4AN6AlWnogPjQ7CVi7PYF3YVz+CY3jE2pwYf7E/7HlDAN0rV2GxTG0HQ==}
     dependencies:
       '@types/body-parser': 1.19.5
-      '@types/express-serve-static-core': 4.19.0
+      '@types/express-serve-static-core': 4.19.5
       '@types/qs': 6.9.15
       '@types/serve-static': 1.15.7
     dev: false
@@ -3901,6 +3901,18 @@ packages:
       supports-color: 5.5.0
     dev: true
 
+  /debug@4.3.5:
+    resolution: {integrity: sha512-pt0bNEmneDIvdL1Xsd9oDQ/wrQRkXDT4AUWlNZNPKvW5x/jyO9VFXkJUP07vQ2upmw5PlaITaPKc31jK13V+jg==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.1.2
+    dev: true
+
   /decode-uri-component@0.2.2:
     resolution: {integrity: sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==}
     engines: {node: '>=0.10'}
@@ -4194,7 +4206,7 @@ packages:
       is-string: 1.0.7
       is-typed-array: 1.1.13
       is-weakref: 1.0.2
-      object-inspect: 1.13.1
+      object-inspect: 1.13.2
       object-keys: 1.1.1
       object.assign: 4.1.5
       regexp.prototype.flags: 1.5.2
@@ -5852,7 +5864,7 @@ packages:
       whatwg-encoding: 1.0.5
       whatwg-mimetype: 2.3.0
       whatwg-url: 7.1.0
-      ws: 6.2.2
+      ws: 6.2.3
       xml-name-validator: 3.0.0
     transitivePeerDependencies:
       - bufferutil
@@ -5924,7 +5936,7 @@ packages:
       lodash.isstring: 4.0.1
       lodash.once: 4.1.1
       ms: 2.1.3
-      semver: 7.6.2
+      semver: 7.6.3
     dev: false
 
   /jsprim@1.4.2:
@@ -6474,8 +6486,9 @@ packages:
       kind-of: 3.2.2
     dev: true
 
-  /object-inspect@1.13.1:
-    resolution: {integrity: sha512-5qoj1RUiKOMsCCNLV1CBiPYE10sziTsnmNxkAI/rZhiD63CF7IqdFGC/XzjWjpSgLf0LxXX3bDFIh0E18f6UhQ==}
+  /object-inspect@1.13.2:
+    resolution: {integrity: sha512-IRZSRuzJiynemAXPYtPe5BoI/RESNYR7TYm50MC5Mqbd3Jmw5y790sErYw3V6SryFJD64b74qQQs9wn5Bg/k3g==}
+    engines: {node: '>= 0.4'}
 
   /object-inspect@1.4.1:
     resolution: {integrity: sha512-wqdhLpfCUbEsoEwl3FXwGyv8ief1k/1aUdIPCqVnupM6e8l63BEJdiF/0swtn04/8p05tG/T0FrpTlfwvljOdw==}
@@ -7432,8 +7445,8 @@ packages:
       side-channel: 1.0.6
     dev: false
 
-  /qs@6.12.1:
-    resolution: {integrity: sha512-zWmv4RSuB9r2mYQw3zxQuHWeU+42aKi1wWig/j4ele4ygELZ7PEO6MM7rim9oAQH2A5MWfsAVf/jPvTPgCbvUQ==}
+  /qs@6.12.3:
+    resolution: {integrity: sha512-AWJm14H1vVaO/iNZ4/hO+HyaTehuy9nRqVdkTqlJt0HWvBiBIEXFmb4C0DGeYo3Xes9rrEW+TxHsaigCbN5ICQ==}
     engines: {node: '>=0.6'}
     dependencies:
       side-channel: 1.0.6
@@ -7837,6 +7850,13 @@ packages:
     resolution: {integrity: sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==}
     engines: {node: '>=10'}
     hasBin: true
+    dev: true
+
+  /semver@7.6.3:
+    resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dev: false
 
   /send@0.18.0:
     resolution: {integrity: sha512-qqWzuOjSFOuqPjFe4NOsMLafToQQwBSOEpS+FwEt3A2V3vKubTquT3vmLTQpFgMXp8AlFWFuP1qKaJZOtPpVXg==}
@@ -7954,7 +7974,7 @@ packages:
       call-bind: 1.0.7
       es-errors: 1.3.0
       get-intrinsic: 1.2.4
-      object-inspect: 1.13.1
+      object-inspect: 1.13.2
 
   /siginfo@2.0.0:
     resolution: {integrity: sha512-ybx0WO1/8bSBLEWXZvEd7gMW3Sn3JFlW3TvX1nREbDLRNQNaeNN8WK0meBwPdAaOI7TtRRRJn/Es1zhrrCHu7g==}
@@ -8720,7 +8740,7 @@ packages:
     resolution: {integrity: sha512-6hxOLGfZASQK/cijlZnZJTq8OXAkt/3YGfQX45vvMYXpZoo8NdWZcY73K108Jf759lS1Bv/8wXnHDTSz17dSRw==}
     dependencies:
       punycode: 1.4.1
-      qs: 6.12.1
+      qs: 6.12.3
     dev: true
 
   /use@3.1.1:
@@ -9038,8 +9058,8 @@ packages:
       async-limiter: 1.0.1
     dev: true
 
-  /ws@6.2.2:
-    resolution: {integrity: sha512-zmhltoSR8u1cnDsD43TX59mzoMZsLKqUweyYBAIvTngR3shc0W6aOZylZmq/7hqyVxPdi+5Ud2QInblgyE72fw==}
+  /ws@6.2.3:
+    resolution: {integrity: sha512-jmTjYU0j60B+vHey6TfR3Z7RD61z/hmxBS3VMSGIrroOWXQEneK1zNuotOUrGyBHQj0yrpsLHPWtigEFd13ndA==}
     peerDependencies:
       bufferutil: ^4.0.1
       utf-8-validate: ^5.0.2
@@ -9052,8 +9072,8 @@ packages:
       async-limiter: 1.0.1
     dev: true
 
-  /ws@7.5.9:
-    resolution: {integrity: sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==}
+  /ws@7.5.10:
+    resolution: {integrity: sha512-+dbF1tHwZpXcbOJdVOkzLDxZP1ailvSxM6ZweXTegylPny803bFhA+vqBYw4s31NSAk4S2Qz+AKXK9a4wkdjcQ==}
     engines: {node: '>=8.3.0'}
     peerDependencies:
       bufferutil: ^4.0.1
